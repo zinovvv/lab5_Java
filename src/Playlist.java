@@ -42,18 +42,21 @@ public class Playlist {
     public void deleteTrack() {
         Scanner scanner = new Scanner(System.in);
         while (true){
+
             try{
-            System.out.println("Введите номер трека, который хотите удалить:");
-            int number = scanner.nextInt();
-            if (number < 1 || number > tracks.size()){
-                throw new IndexOutOfBoundsException("Некорректный номер трека");
+                System.out.println("Введите номер трека, который хотите удалить:");
+                int number = scanner.nextInt();
+                if (number < 1 || number > tracks.size()){
+                    throw new IndexOutOfBoundsException("Некорректный номер трека");
+                }
+                this.tracks.remove(number - 1);
+                break;
             }
-            this.tracks.remove(number - 1);
-            break;
-            }
+
             catch (IndexOutOfBoundsException e) {
                 System.err.println("Ошибка удаления трека: " + e.getMessage());
             }
+
         }
     }
 
